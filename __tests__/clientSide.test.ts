@@ -1,7 +1,7 @@
 import { getApiUrl } from "../src";
 import { IncomingMessage } from "http";
 
-describe("validator tests", () => {
+describe("client side tests", () => {
   test("should output correct url when in client side", () => {
     expect(
       getApiUrl({

@@ -37,4 +37,8 @@ export const getApiUrl = (
   return `${protocol}://${host}${apiSufix ? "/api" : ""}`;
 };
 
+export const withApiUrl = (
+  f: (ctx: NextPageContext, url: string) => { props: any } | any
+) => (ctx: NextPageContext) => f(ctx, getApiUrl(ctx));
+
 export default getApiUrl;

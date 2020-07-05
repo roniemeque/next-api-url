@@ -5,7 +5,7 @@
 import { getApiUrl } from "../src";
 import { IncomingMessage } from "http";
 
-describe("validator tests", () => {
+describe("main functionality tests", () => {
   test("should output correct url in localhost", () => {
     expect(
       getApiUrl({
