@@ -1,28 +1,40 @@
 import { NextPageContext, NextApiRequest } from "next";
+import { IncomingMessage } from "http";
 
 const isClientSide = () => typeof window !== "undefined";
 
-const findProtocol = (req: NextApiRequest) => {
-  // check if req.protocol
-  // check if 'x-now-deployment-url', use https:
-  // check development or localhost
+const discoverHost = (req: IncomingMessage): string => {
+  return req.headers.host || (req.headers["x-forwarded-host"] as string);
 };
 
-const findHost = (req: NextApiRequest) => {};
+const discoverProtocol = (
+  req: IncomingMessage & { protocol?: string },
+  host: string
+): string => {
+  if (host.includes("localhost")) return "http";
 
-// handle server side
-// getServerSideProps
-// getStaticProps
+  // if it is a Vercel deployment, this will probably be present and we can assume it is secure
+  if (req.headers["x-now-deployment-url"]) return "https";
 
-// handle client side
-// getInitialProps
+  // if Next.js is running on a custom server, like Express, req.protocol will probably be available
+  return req["protocol"] || "https";
+};
 
-export const getAbsoluteUrl = (
-  ctx?: NextPageContext | { req: NextApiRequest } | null | undefined
+export const getApiUrl = (
+  ctx?: NextPageContext | { req: IncomingMessage } | null | undefined,
+  apiSufix = true
 ) => {
-  return "";
+  // checking if it is client side, in case of using getInitialProps
+  if (isClientSide()) return apiSufix ? "/api" : "";
+
+  if (!ctx?.req) {
+    throw new Error("Invalid request");
+  }
+
+  const host = discoverHost(ctx?.req);
+  const protocol = discoverProtocol(ctx?.req, host);
+
+  return `${protocol}://${host}${apiSufix ? "/api" : ""}`;
 };
 
-export const withAbsoluteUrl = () => null;
-
-export default getAbsoluteUrl;
+export default getApiUrl;
