@@ -1,0 +1,37 @@
+{
+  "name": "next-api-url",
+  "version": "0.1.0",
+  "description": "",
+  "keywords": [],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "repository": "git@github.com:roniemeque/validador-telefones.git",
+  "author": "Ronie Meque <roniemeque@icloud.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^26.0.3",
+    "@types/next": "^9.0.0",
+    "@types/node": "^14.0.14",
+    "jest": "^26.1.0",
+    "prettier": "^2.0.5",
+    "ts-jest": "^26.1.1",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.9.6"
+  },
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "prepare": "yarn build",
+    "prepublishOnly": "npm test && yarn lint",
+    "preversion": "yarn lint",
+    "version": "yarn format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "files": [
+    "lib/**/*"
+  ]
+}
