@@ -11,7 +11,7 @@
   ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "repository": "git@github.com:roniemeque/next-api-url.git",
+  "repository": "git://github.com/roniemeque/next-api-url.git",
   "author": "Ronie Meque <roniemeque@icloud.com>",
   "license": "MIT",
   "devDependencies": {
