@@ -1,4 +1,3 @@
-import { NextPageContext, NextApiRequest } from "next";
 import { IncomingMessage } from "http";
 
 const isClientSide = () => typeof window !== "undefined";
@@ -21,7 +20,7 @@ const discoverProtocol = (
 };
 
 export const getApiUrl = (
-  ctx?: NextPageContext | { req: IncomingMessage } | null | undefined,
+  ctx?: { req: IncomingMessage } | null | undefined,
   apiSufix = true
 ) => {
   // checking if it is client side, in case of using getInitialProps
@@ -38,7 +37,7 @@ export const getApiUrl = (
 };
 
 export const withApiUrl = (
-  f: (ctx: NextPageContext, url: string) => { props: any } | any
-) => (ctx: NextPageContext) => f(ctx, getApiUrl(ctx));
+  f: (ctx: { req: IncomingMessage }, url: string) => { props: any } | any
+) => (ctx: { req: IncomingMessage }) => f(ctx, getApiUrl(ctx));
 
 export default getApiUrl;

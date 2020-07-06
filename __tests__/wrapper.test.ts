@@ -3,7 +3,7 @@
  */
 
 import { withApiUrl } from "../src";
-import { NextPageContext } from "next";
+import { IncomingMessage } from "http";
 
 describe("wrapper tests", () => {
   test("should wrap and return props", () => {
@@ -20,7 +20,7 @@ describe("wrapper tests", () => {
             host: "localhost:3000",
           },
         },
-      } as NextPageContext)
+      } as { req: IncomingMessage })
     ).toEqual({
       props: {
         url: "http://localhost:3000/api",
