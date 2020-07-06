@@ -11,7 +11,7 @@
   ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "repository": "git@github.com:roniemeque/validador-telefones.git",
+  "repository": "git@github.com:roniemeque/next-api-url.git",
   "author": "Ronie Meque <roniemeque@icloud.com>",
   "license": "MIT",
   "devDependencies": {
@@ -35,10 +35,7 @@
     "prepublishOnly": "npm test && yarn lint",
     "preversion": "yarn lint",
     "version": "yarn format && git add -A src",
-    "postversion": "git push && git push --tags",
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "postversion": "git push && git push --tags"
   },
   "files": [
     "lib/**/*"
