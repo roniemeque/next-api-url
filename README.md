@@ -18,6 +18,7 @@ import apiUrl from "next-api-url";
 fetch(`${apiUrl(ctx)}/posts`); // http://localhost:3000/api
 fetch(`${apiUrl(ctx)}/posts`); // https://blog.com/api
 fetch(`${apiUrl({ req: ctx.req })}/posts`); // https://blog.com/api
+fetch(`${apiUrl({ req: ctx.req })}/posts`, false); // https://blog.com
 ```
 
 ## Examples
