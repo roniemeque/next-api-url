@@ -1,8 +1,14 @@
 {
   "name": "next-api-url",
   "version": "0.1.0",
-  "description": "",
-  "keywords": [],
+  "description": "Helper to quickly get the absolute URL to use in Next.js data fetching",
+  "keywords": [
+    "next.js",
+    "absolute url",
+    "ssr",
+    "getServerSideProps",
+    "getInitialProps"
+  ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "repository": "git@github.com:roniemeque/validador-telefones.git",
