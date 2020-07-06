@@ -74,4 +74,19 @@ describe("main functionality tests", () => {
       } as { req: IncomingMessage & { protocol: string } })
     ).toEqual("http://library.com/api");
   });
+
+  test("should return without api sufix when asked", () => {
+    expect(
+      getApiUrl(
+        {
+          req: {
+            headers: {
+              host: "localhost:3000",
+            },
+          },
+        } as { req: IncomingMessage },
+        false
+      )
+    ).toEqual("http://localhost:3000");
+  });
 });
