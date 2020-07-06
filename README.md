@@ -1,5 +1,7 @@
 # Next.js Absolute API URL Helper
 
+[![roniemeque](https://circleci.com/gh/roniemeque/next-api-url.svg?style=shield)](https://app.circleci.com/pipelines/github/roniemeque/next-api-url)
+
 This package provides a quick solution around the common Next.js error that happens while trying to fetch data in the server side without providing a full url:
 
 `Server Error: Only absolute URLs are supported`
