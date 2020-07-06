@@ -1,6 +1,6 @@
 {
   "name": "next-api-url",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Helper to quickly get the absolute URL to use in Next.js data fetching",
   "keywords": [
     "next.js",
@@ -35,7 +35,10 @@
     "prepublishOnly": "npm test && yarn lint",
     "preversion": "yarn lint",
     "version": "yarn format && git add -A src",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "files": [
     "lib/**/*"
